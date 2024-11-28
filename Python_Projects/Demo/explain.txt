@@ -1,0 +1,42 @@
+import sys: Imports the sys module, which provides access to some variables used or maintained by the Python interpreter and functions that interact strongly with the interpreter.
+
+from PyQt5.QtWidgets import QWidget, QApplication, QVBoxLayout, QLabel: Imports necessary classes from the PyQt5.QtWidgets module. QWidget is the base class for all UI objects, QApplication manages the application's control flow and main settings, QVBoxLayout is a vertical layout manager, and QLabel is a widget that can display text or images.
+
+from PyQt5.QtCore import Qt: Imports the Qt module from PyQt5.QtCore, which provides constants for various purposes, including alignment flags.
+
+class MainWindow(QWidget):: Defines a custom class named MainWindow that inherits from QWidget, creating a new type of widget.
+
+def __init__(self):: Defines the constructor for the MainWindow class.
+
+super().__init__(): Calls the constructor of the base class (QWidget) to initialize the widget.
+
+self.setWindowTitle("Main Window"): Sets the window title to "Main Window."
+
+self.setGeometry(500, 300, 500, 300): Sets the initial geometry (position and size) of the window to (x=500, y=300, width=500, height=300).
+
+self.mainLayout = QVBoxLayout(self): Creates a vertical layout (QVBoxLayout) and associates it with the main widget (self). The main layout will be used to arrange child widgets vertically.
+
+self.setLayout(self.mainLayout): Sets the main layout of the widget to self.mainLayout.
+
+self.LabelUI(): Calls the LabelUI method to set up the QLabel.
+
+def LabelUI(self):: Defines the LabelUI method to set up the QLabel.
+
+self.label = QLabel("Hello World"): Creates a QLabel with the text "Hello World."
+
+self.mainLayout.addWidget(self.label, 0, Qt.AlignmentFlag.AlignAbsolute): Adds the QLabel to the main layout. The third argument, Qt.AlignmentFlag.AlignAbsolute, specifies the alignment of the QLabel within the layout. However, this argument is not needed, and you can remove it. The 0 is an optional stretch factor, which is set to 0 here, meaning the QLabel will not expand in the vertical direction.
+
+if __name__ == "__main__":: Checks if the script is being run as the main program.
+
+app = QApplication(sys.argv): Creates an instance of the QApplication class. sys.argv is a list in Python, which contains the command-line arguments passed to the script.
+
+main_Window = MainWindow(): Creates an instance of the MainWindow class.
+
+main_Window.show(): Displays the main window.
+
+sys.exit(app.exec_()): Starts the application's event loop and exits the script when the main window is closed.
+
+
+
+
+
